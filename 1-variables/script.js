@@ -1,11 +1,13 @@
 //1.1 Types simples
 
-var name = 'Jacques';
-var age = 80;
-var useless = 'something';
+const name = 'Jacques';
+let age = 80;
+let useless = 'something';
 
 console.log(name, age, useless);
 
+//En const, il est impossible de revoir la valeur d'une variable,
+//il faut donc la passer en let pour age & useless
 age += 1;
 useless = 14;
 
@@ -14,8 +16,11 @@ console.log(name, age, useless);
 //----------------------//
 //1.2 Tableaux
 
-let fruits = ['apple', 'pear', 'cherry'];
-let vegetables = ['potato', 'curlyflower', 'tomato'];
+
+//Il n'y a pas d'erreur ici, car on alimente une variable const en tableau,
+//on ne la modifie pas
+const fruits = ['apple', 'pear', 'cherry'];
+const vegetables = ['potato', 'curlyflower', 'tomato'];
 
 console.log(fruits, vegetables);
 
@@ -27,13 +32,16 @@ console.log(fruits, vegetables);
 //----------------------//
 //1.3 Objets
 
-let settings = {
+const settings = {
     sound: true,
     music: false,
     graphics: 'high',
     resolution: [1920, 1080]
 };
 
+//Là encore, pour settings, la variable const fonctionne car elle n'est pas
+//modifiée, il s'agit d'un paramètre de base. En revanche, lors d'une
+//savegame, les valeures de la variable sont modifiés et cela créer l'érreur.
 let savedGame = {
     time: 384,
     score: 47,

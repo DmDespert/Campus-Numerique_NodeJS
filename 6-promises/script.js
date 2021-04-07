@@ -21,6 +21,24 @@ function secondWithError() {
   return sleep(100).then(() => {throw new Error("catch me if you can");})
 }
 
+/*
 first();
 second();
 third();
+ */
+
+//L'ordre des messages dans le console log s'affiche de cette façon : 2 3 1.
+//Il s'agit du paramêtre ms qui donne le temps de réponse à une fonction, la fonction 1
+//aillant pour temps de réponse 300ms, il passe en dernier.
+
+first().then(()=> {
+  return new Promise((success, fail) => {
+    if(Math.random() > .5)
+      success();
+    else
+      fail();
+  })
+})
+    .then(()=>second())
+    .catch(()=>secondWithError())
+    .then(() => third())
